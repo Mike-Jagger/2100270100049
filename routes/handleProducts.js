@@ -16,9 +16,9 @@ router.get('/categories/:categoryname/products', async (req, res) => {
   const { top = 10, minPrice, maxPrice, page = 1, sort = 'price', order = 'asc' } = req.query;
 
   try {
+    console.log({ top, minPrice, maxPrice, page, sort, order, categoryname });
     // Fetch all products from the external API
-    const response = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryname}/products`, {
-      params: { top, minPrice, maxPrice },
+    const response = await axios.get(`http://20.244.56.144/test/companies/AKGEC/categories/${categoryname}/products?top=${top}&minPrice=${minPrice}&maxPrice=${maxPrice}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
