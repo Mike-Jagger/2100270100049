@@ -3,11 +3,27 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
+// Function to generate unique identifier for products
+const generateUniqueId = (product) => {
+  return `${product.productName}-${product.price}-${product.rating}`;
+};
+
 // Load JSON data
 const loadData = () => {
-  const dataPath = './storesWithIds.json';
+  const dataPath = './sampleMerchantStores.json';
   const jsonData = fs.readFileSync(dataPath);
   return JSON.parse(jsonData);
+};
+
+// Function to assign unique IDs to products
+const assignUniqueIds = (data) => {
+  data.stores.forEach(store => {
+    store.products = store.products.map(product => {
+      product.id = generateUniqueId(product);
+      return product;
+    });
+  });
+  return data;
 };
 
 // Function to apply sorting
@@ -25,7 +41,11 @@ const applySorting = (products, sort, order) => {
 router.get('/categories/:categoryname/products', (req, res) => {
   const { categoryname } = req.params;
   const { top = 10, minPrice, maxPrice, page = 1, sort = 'price', order = 'asc' } = req.query;
-  const data = loadData();
+  let data = loadData();
+  
+  // Assign unique IDs
+  data = assignUniqueIds(data);
+
   let products = [];
 
   // Collect products from all stores
@@ -62,7 +82,11 @@ router.get('/categories/:categoryname/products', (req, res) => {
 // GET /categories/:categoryname/products/:productid
 router.get('/categories/:categoryname/products/:productid', (req, res) => {
   const { categoryname, productid } = req.params;
-  const data = loadData();
+  let data = loadData();
+  
+  // Assign unique IDs
+  data = assignUniqueIds(data);
+
   let product;
 
   // Find the product by ID
