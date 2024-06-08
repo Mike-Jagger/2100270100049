@@ -24,13 +24,7 @@
             "rating": 4.8,
             "discount": 90,
             "availability": "yes"
-          }
-        ]
-      },
-      {
-        "storeId": "2",
-        "storeName": "Store B",
-        "products": [
+          },
           {
             "productName": "Laptop 4",
             "price": 2652,
@@ -51,13 +45,7 @@
             "rating": 3.2,
             "discount": 24,
             "availability": "out-of-stock"
-          }
-        ]
-      },
-      {
-        "storeId": "3",
-        "storeName": "Store C",
-        "products": [
+          },
           {
             "productName": "Laptop 7",
             "price": 9254,
@@ -77,6 +65,144 @@
             "price": 7145,
             "rating": 2.7,
             "discount": 15,
+            "availability": "yes"
+          }
+        ]
+      },
+      {
+        "storeId": "2",
+        "storeName": "Store B",
+        "products": [
+          {
+            "productName": "Laptop 10",
+            "price": 2136,
+            "rating": 4.6,
+            "discount": 60,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 11",
+            "price": 1284,
+            "rating": 4.2,
+            "discount": 42,
+            "availability": "out-of-stock"
+          },
+          {
+            "productName": "Laptop 12",
+            "price": 9122,
+            "rating": 4.9,
+            "discount": 92,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 13",
+            "price": 2722,
+            "rating": 4.3,
+            "discount": 72,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 14",
+            "price": 1299,
+            "rating": 3.9,
+            "discount": 39,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 15",
+            "price": 8622,
+            "rating": 3.1,
+            "discount": 20,
+            "availability": "out-of-stock"
+          },
+          {
+            "productName": "Laptop 16",
+            "price": 9259,
+            "rating": 3.3,
+            "discount": 55,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 17",
+            "price": 1069,
+            "rating": 2.8,
+            "discount": 25,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 18",
+            "price": 7125,
+            "rating": 2.6,
+            "discount": 18,
+            "availability": "yes"
+          }
+        ]
+      },
+      {
+        "storeId": "3",
+        "storeName": "Store C",
+        "products": [
+          {
+            "productName": "Laptop 19",
+            "price": 2244,
+            "rating": 4.4,
+            "discount": 65,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 20",
+            "price": 1289,
+            "rating": 4.0,
+            "discount": 40,
+            "availability": "out-of-stock"
+          },
+          {
+            "productName": "Laptop 21",
+            "price": 9119,
+            "rating": 4.5,
+            "discount": 88,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 22",
+            "price": 2660,
+            "rating": 4.0,
+            "discount": 65,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 23",
+            "price": 1255,
+            "rating": 3.7,
+            "discount": 30,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 24",
+            "price": 8675,
+            "rating": 3.4,
+            "discount": 22,
+            "availability": "out-of-stock"
+          },
+          {
+            "productName": "Laptop 25",
+            "price": 9240,
+            "rating": 3.5,
+            "discount": 50,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 26",
+            "price": 1040,
+            "rating": 2.9,
+            "discount": 19,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 27",
+            "price": 7150,
+            "rating": 2.5,
+            "discount": 12,
             "availability": "yes"
           }
         ]
