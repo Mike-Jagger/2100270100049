@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
+// Function to generate unique identifier for products
+const generateUniqueId = (product) => {
+    return `${product.productName}-${product.price}-${product.rating}`;
+};
+
 // GET /categories/:categoryname/products
 router.get('/categories/:categoryname/products', async (req, res) => {
   const { categoryname } = req.params;
