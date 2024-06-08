@@ -16,7 +16,39 @@ router.get('/categories/:categoryname/products', async (req, res) => {
     const response = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryname}/products`, {
       params: { top, minPrice, maxPrice, page, sort, order }
     });
-    res.json(response.data);
+
+    let products = response.data;
+
+    // Filter by price range
+    if (minPrice) {
+      products = products.filter(product => product.price >= minPrice);
+    }
+    if (maxPrice) {
+      products = products.filter(product => product.price <= maxPrice);
+    }
+
+    // Apply sorting
+    products.sort((a, b) => {
+      if (order === 'asc') {
+        return a[sort] > b[sort] ? 1 : -1;
+      } else {
+        return a[sort] < b[sort] ? 1 : -1;
+      }
+    });
+
+    // Generate unique IDs for the products
+    products = products.map(product => {
+      product.id = generateUniqueId(product);
+      return product;
+    });
+
+    // Apply pagination
+    const pageSize = parseInt(top, 10);
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const paginatedProducts = products.slice(startIndex, endIndex);
+
+    res.json(paginatedProducts);
   } catch (error) {
     res.status(500).send(error.message);
   }
