@@ -1,0 +1,86 @@
+{
+    "stores": [
+      {
+        "storeId": "1",
+        "storeName": "Store A",
+        "products": [
+          {
+            "productName": "Laptop 1",
+            "price": 2236,
+            "rating": 4.7,
+            "discount": 63,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 2",
+            "price": 1244,
+            "rating": 4.5,
+            "discount": 45,
+            "availability": "out-of-stock"
+          },
+          {
+            "productName": "Laptop 3",
+            "price": 9102,
+            "rating": 4.8,
+            "discount": 90,
+            "availability": "yes"
+          }
+        ]
+      },
+      {
+        "storeId": "2",
+        "storeName": "Store B",
+        "products": [
+          {
+            "productName": "Laptop 4",
+            "price": 2652,
+            "rating": 4.1,
+            "discount": 70,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 5",
+            "price": 1258,
+            "rating": 3.8,
+            "discount": 33,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 6",
+            "price": 8686,
+            "rating": 3.2,
+            "discount": 24,
+            "availability": "out-of-stock"
+          }
+        ]
+      },
+      {
+        "storeId": "3",
+        "storeName": "Store C",
+        "products": [
+          {
+            "productName": "Laptop 7",
+            "price": 9254,
+            "rating": 3.0,
+            "discount": 56,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 8",
+            "price": 1059,
+            "rating": 2.7,
+            "discount": 21,
+            "availability": "yes"
+          },
+          {
+            "productName": "Laptop 9",
+            "price": 7145,
+            "rating": 2.7,
+            "discount": 15,
+            "availability": "yes"
+          }
+        ]
+      }
+    ]
+  }
+  
