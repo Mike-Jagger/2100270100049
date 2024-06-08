@@ -9,8 +9,8 @@ const generateUniqueId = (product) => {
 
 // GET /categories/:categoryname/products
 router.get('/categories/:categoryname/products', async (req, res) => {
-  const { categoryname } = req.params;
-  const { top, minPrice, maxPrice, page = 1, sort, order } = req.query;
+    const { categoryname } = req.params;
+    const { top = 10, minPrice, maxPrice, page = 1, sort = 'price', order = 'asc' } = req.query;  
   
   try {
     const response = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryname}/products`, {
