@@ -57,12 +57,18 @@ router.get('/categories/:categoryname/products', async (req, res) => {
 // GET /categories/:categoryname/products/:productid
 router.get('/categories/:categoryname/products/:productid', async (req, res) => {
     const { categoryname, productid } = req.params;
-    
+
     try {
-      const response = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryname}/products/${productid}`);
-      res.json(response.data);
+        const response = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryname}/products`);
+        const product = response.data.find(prod => generateUniqueId(prod) === productid);
+
+        if (product) {
+            res.json(product);
+        } else {
+            res.status(404).send('Product not found');
+        }
     } catch (error) {
-      res.status(500).send(error.message);
+        res.status(500).send(error.message);
     }
   });
   
