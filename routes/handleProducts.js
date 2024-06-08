@@ -66,7 +66,7 @@ router.get('/categories/:categoryname/products/:productid', async (req, res) => 
   const { categoryname, productid } = req.params;
 
   try {
-    const response = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryname}/products`, {
+    const response = await axios.get(`http://20.244.56.144/test/companies/AKGEC/categories/${categoryname}/products`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
