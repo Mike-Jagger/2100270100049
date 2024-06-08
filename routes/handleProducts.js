@@ -3,16 +3,22 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
-// Function to generate unique identifier for products
-const generateUniqueId = (product) => {
-  return `${product.productName}-${product.price}-${product.rating}`;
-};
-
 // Load JSON data
 const loadData = () => {
-  const dataPath = './sampleMerchantStores.json';
+  const dataPath = './storesWithIds.json';
   const jsonData = fs.readFileSync(dataPath);
   return JSON.parse(jsonData);
+};
+
+// Function to apply sorting
+const applySorting = (products, sort, order) => {
+  return products.sort((a, b) => {
+    if (order === 'asc') {
+      return a[sort] > b[sort] ? 1 : -1;
+    } else {
+      return a[sort] < b[sort] ? 1 : -1;
+    }
+  });
 };
 
 // GET /categories/:categoryname/products
@@ -36,19 +42,13 @@ router.get('/categories/:categoryname/products', (req, res) => {
   }
 
   // Apply sorting
-  products.sort((a, b) => {
-    if (order === 'asc') {
-      return a[sort] > b[sort] ? 1 : -1;
-    } else {
-      return a[sort] < b[sort] ? 1 : -1;
-    }
-  });
-
-  // Generate unique IDs for the products
-  products = products.map(product => {
-    product.id = generateUniqueId(product);
-    return product;
-  });
+  const validSortFields = ['price', 'rating', 'discount'];
+  if (validSortFields.includes(sort)) {
+    products = applySorting(products, sort, order);
+  } else {
+    // Default sorting by price if the sort field is invalid
+    products = applySorting(products, 'price', 'asc');
+  }
 
   // Apply pagination
   const pageSize = parseInt(top, 10);
@@ -67,7 +67,7 @@ router.get('/categories/:categoryname/products/:productid', (req, res) => {
 
   // Find the product by ID
   data.stores.forEach(store => {
-    const foundProduct = store.products.find(prod => generateUniqueId(prod) === productid);
+    const foundProduct = store.products.find(prod => prod.id === productid);
     if (foundProduct) {
       product = foundProduct;
     }
