@@ -10,7 +10,7 @@ const generateUniqueId = (product) => {
 
 // Load JSON data
 const loadData = () => {
-  const dataPath = path.join(__dirname, 'stores.json');
+  const dataPath = './sampleMerchantStores.json';
   const jsonData = fs.readFileSync(dataPath);
   return JSON.parse(jsonData);
 };
