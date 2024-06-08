@@ -16,3 +16,17 @@ router.get('/categories/:categoryname/products', async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+// GET /categories/:categoryname/products/:productid
+router.get('/categories/:categoryname/products/:productid', async (req, res) => {
+    const { categoryname, productid } = req.params;
+    
+    try {
+      const response = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryname}/products/${productid}`);
+      res.json(response.data);
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  });
+  
+  module.exports = router;
