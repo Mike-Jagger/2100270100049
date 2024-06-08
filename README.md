@@ -1,6 +1,6 @@
 ## LIST OF HTTP REQUESTS TO TEST API SERVER:
 
-Requests are made based on the *`sample merchant stores file`*. This file simulates how the api would normally send a list of products for specific companies (as well as for specific product Ids). 
+Requests are made based on the *`sample merchant stores file`*. This file stores response from the production api endpoint, and mutates on changes in the merchant store data. The idea is that, unless a new request is made to the main server for a different company or category, this file will be used to give consistent responses to client, giving unique ID's to send to the client everytime the parameters change. However, if the company or category name change, a new request will be made to the production api endpoint to get data and repeat the process.
 
 chekout the file to have an idea of how the responses look like, then proceed with testing the api locally, by running the ``server.js`` file and sending the following get requests using **Postman** or **Insomnia**;
 
